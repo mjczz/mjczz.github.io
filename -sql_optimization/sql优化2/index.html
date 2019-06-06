@@ -7,11 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content="Hugo 0.55.6" />
     
-    <link rel="canonical" href="https://mjczz.github.io/posts/my-first-post/" />
+    <link rel="canonical" href="https://mjczz.github.io/-sql_optimization/sql%E4%BC%98%E5%8C%962/" />
     <meta name="description" content="A hugo site using Edidor. &lt;br/&gt;&lt;br/&gt; Ctrl&#43;B toggle sidebar. ">
     
 
-    <title>My First Post &middot; Edidor Demo</title>
+    <title>sql优化2 &middot; Edidor Demo</title>
 
     <link rel="shortcut icon" href="https://mjczz.github.io/images/favicon.ico" />
 
@@ -203,12 +203,12 @@
         </nav>
         <main class="main">
             <article class="article">
-    <h2 class="title"><a href='/posts/my-first-post/' class="btn">My First Post</a></h2>
+    <h2 class="title"><a href='/-sql_optimization/sql%E4%BC%98%E5%8C%962/' class="btn">sql优化2</a></h2>
     <div class="article-meta clearfix">
         <ul class="dates clearfix left control">
             <li><i class="icon icon-date"></i></li>
             <li class="publish-date">
-                <time datetime="2019.06.06">2019.06.06</time>
+                <time datetime="2019.06.01">2019.06.01</time>
             </li>
         </ul>
         
@@ -216,7 +216,63 @@
     </div>
     <div class="content">
         
-        <p class="no-content">No Content. - -</p>
+        
+
+<h3 id="业务场景">业务场景</h3>
+
+<p>查询学生在原教师产生的课耗</p>
+
+<h3 id="原sql">原sql</h3>
+
+<pre><code class="language-sql">SELECT co.class_teacher_id,co.student_id,sum(co.keshi_num) sum_keshi_num
+FROM nice_student_class_out as co
+WHERE co.class_status = 4 AND co.class_teacher_id &gt; 0
+GROUP BY co.class_teacher_id,co.student_id
+</code></pre>
+
+<h3 id="分析">分析</h3>
+
+<p>这条sql属于业务层没有加条件限制</p>
+
+<pre><code class="language-php">// 变更老师--学生在原教师产生的课耗
+    public function old_teacher_kehao($param)
+    {
+        $wherestr = &quot; WHERE co.class_status = 4 AND co.class_teacher_id &gt; 0&quot;;
+
+        if(!empty($param['in_class_teacher_id'])){
+            $wherestr .= &quot; AND co.class_teacher_id IN (&quot; . implode(',',$param['in_class_teacher_id']) . &quot;)&quot;;
+        }
+
+        $sql = &quot;SELECT co.class_teacher_id,co.student_id,sum(co.keshi_num) sum_keshi_num
+                FROM nice_student_class_out as co 
+                {$wherestr}
+                GROUP BY co.class_teacher_id,co.student_id&quot;;
+
+        $res = $this-&gt;db-&gt;query($sql)-&gt;result_array();
+        return $res;
+    }
+</code></pre>
+
+<h3 id="更改业务层代码">更改业务层代码</h3>
+
+<pre><code class="language-php"> // 变更老师--学生在原教师产生的课耗
+    public function old_teacher_kehao($param)
+    {
+        if (empty($param['in_class_teacher_id'])) {return 0;}
+        $wherestr = &quot; WHERE co.class_status = 4 AND co.class_teacher_id &gt; 0&quot;;
+
+        $wherestr .= &quot; AND co.class_teacher_id IN (&quot; . implode(',',$param['in_class_teacher_id']) . &quot;)&quot;;
+
+        $sql = &quot;SELECT co.class_teacher_id,co.student_id,sum(co.keshi_num) sum_keshi_num
+                FROM nice_student_class_out as co 
+                {$wherestr}
+                GROUP BY co.class_teacher_id,co.student_id&quot;;
+
+        $res = $this-&gt;db-&gt;query($sql)-&gt;result_array();
+        return $res;
+    }
+</code></pre>
+
         
     </div>
 
