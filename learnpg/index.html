@@ -10,8 +10,10 @@
     <link rel="canonical" href="https://mjczz.github.io/learnpg/" />
     <meta name="description" content="A hugo site using Edidor. &lt;br/&gt;&lt;br/&gt; Ctrl&#43;B toggle sidebar. ">
     
+    <link rel="alternate" type="application/rss&#43;xml" href="https://mjczz.github.io/learnpg/index.xml">
+    
 
-    <title>pgsql优化1 &middot; Edidor Demo</title>
+    <title>Learnpgs &middot; Edidor Demo</title>
 
     <link rel="shortcut icon" href="https://mjczz.github.io/images/favicon.ico" />
 
@@ -89,22 +91,10 @@
         
         
         
-        
-        <li 
-            class="">
-            <a class="btn" id="theme-switcher-button">
+        <li>
+            <a href="/learnpg" class="btn">
                 PG学习
             </a>
-            <ul class="sub-menu control">
-                
-                <li class="">
-                    <a href="/learnpg"
-                    
-                        class="btn "
-                    >sql优化</a>
-                </li>
-                
-            </ul>
         </li>
         
         
@@ -182,78 +172,56 @@
 
     <div class="middle">
         <nav class="sidebar">
-            <ul class="posts control">
+            <ul class="control">
     
-    <li><a class="no-break btn" href='/sql/sql%E4%BC%98%E5%8C%96%E6%A8%A1%E6%9D%BF/'><i class="icon icon-post"></i>sql优化模板</a></li>
+    <li class="taxonomy-key">Categories</li>
     
-    <li><a class="no-break btn" href='/sql/sql%E4%BC%98%E5%8C%966/'><i class="icon icon-post"></i>sql优化6</a></li>
     
-    <li><a class="no-break btn" href='/sql/sql%E4%BC%98%E5%8C%965/'><i class="icon icon-post"></i>sql优化5</a></li>
+    <li class="taxonomy-key">Tags</li>
     
-    <li><a class="no-break btn" href='/sql/sql%E4%BC%98%E5%8C%964/'><i class="icon icon-post"></i>sql优化4</a></li>
-    
-    <li><a class="no-break btn" href='/sql/sql%E4%BC%98%E5%8C%963/'><i class="icon icon-post"></i>sql优化3</a></li>
-    
-    <li><a class="no-break btn" href='/sql/sql%E4%BC%98%E5%8C%962/'><i class="icon icon-post"></i>sql优化2</a></li>
-    
-    <li><a class="no-break btn" href='/sql/sql%E4%BC%98%E5%8C%961/'><i class="icon icon-post"></i>sql优化1</a></li>
     
 </ul>
 
         </nav>
         <main class="main">
-            <article class="article">
-    <h2 class="title"><a href='/learnpg/' class="btn">pgsql优化1</a></h2>
-    <div class="article-meta clearfix">
-        <ul class="dates clearfix left control">
-            <li><i class="icon icon-date"></i></li>
-            <li class="publish-date">
-                <time datetime="2019.06.06">2019.06.06</time>
-            </li>
-        </ul>
-        
-        
-    </div>
-    <div class="content">
-        
-        <p>1. 创建必要的索引,如何其他表关联的字段</p>
+            
 
-<p>2. 调整where子句的顺序：pgsql从左向右解析where子句</p>
+<h2 class="title group-date">
+    <time datetime="2019-06">2019-06</time>
+</h2>
+<ul class="list control">
+    
+    <li class="item">
+        <h4 class="title"><a href="https://mjczz.github.io/learnpg/2/" class="btn">pgsql优化2</a></h4>
+        <div class="item-meta">
+            <time datetime="06-06">
+                06-06
+            </time>
+        </div>
+    </li>
+    
+    <li class="item">
+        <h4 class="title"><a href="https://mjczz.github.io/learnpg/1/" class="btn">pgsql优化1</a></h4>
+        <div class="item-meta">
+            <time datetime="06-06">
+                06-06
+            </time>
+        </div>
+    </li>
+    
+</ul>
 
-<p>3. SELECT 语句中避免用户 *，即使是查询所有的列
-SELECT  * 比较方便，但是数据库会将 * 依次解析成所有的列名，这样会耗费更多的时间</p>
+<div class="pagination">
+    <ul class="clearfix control">
+        <li class="left">
+            
+        </li>
 
-<p>4. 尽量将多条sql语句压缩成一条sql（典型的批量插入）,因为每次执行sql语句都要建立网络连接、进行权限校验、进行sql语句的查询优化、发送执行结果。这个过程相当耗时。</p>
-
-<p>5. 避免在索引列上对null值判断，使用null值判断数据库会放弃索引而进行全表扫描</p>
-
-        
-    </div>
-
-</article>
-<section class="comment">
-    <p class="local-info">
-        Comment is disabled to avoid unwanted discussions from 'localhost:1313' on your Disqus
-        account...
-    </p>
-    <div id="disqus_thread"></div>
-</section>
-<script type="text/javascript">
-
-    (function () {
-        if (window.location.hostname == "localhost") {
-            return
-        }
-        document.querySelector('.local-info').classList.add('hide')
-
-        let dsq = document.createElement('script')
-        dsq.type = 'text/javascript'
-        dsq.async = true
-        let disqus_shortname = 'your disqus short name'
-        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq)
-    })()
-</script>
+        <li class="right">
+            
+        </li>
+    </ul>
+</div>
 
 
         </main>

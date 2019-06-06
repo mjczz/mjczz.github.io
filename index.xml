@@ -22,11 +22,20 @@
     
     <item>
       <title>pgsql优化1</title>
-      <link>https://mjczz.github.io/learnpg/</link>
+      <link>https://mjczz.github.io/learnpg/1/</link>
       <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mjczz.github.io/learnpg/</guid>
+      <guid>https://mjczz.github.io/learnpg/1/</guid>
       <description>1. 创建必要的索引,如何其他表关联的字段 2. 调整where子句的顺序：pgsql从左向右解析where子句 3. SELECT 语句中避免用户 *，即使是查询所有的</description>
+    </item>
+    
+    <item>
+      <title>pgsql优化2</title>
+      <link>https://mjczz.github.io/learnpg/2/</link>
+      <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://mjczz.github.io/learnpg/2/</guid>
+      <description>数据库索引建立常用规则 1. 表的主键、外键一般要建索引（pgsql会自动为主键建立索引） 2. 经常与其他表连接的表，在连接字段上建立索引 3. 索引应该建</description>
     </item>
     
     <item>
