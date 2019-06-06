@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>EXPLAIN 使用浅析</title>
+      <link>https://mjczz.github.io/learnpg/explain-%E4%BD%BF%E7%94%A8%E6%B5%85%E6%9E%90/</link>
+      <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://mjczz.github.io/learnpg/explain-%E4%BD%BF%E7%94%A8%E6%B5%85%E6%9E%90/</guid>
+      <description>EXPLAIN 语法 在PostgreSQL 中，EXPLAIN 命令可以输出SQL 语句的查询计划，具体语法如下： EXPLAIN [ ( option [, ...] ) ] statement EXPLAIN [ ANALYZE ] [ VERBOSE ] statement where option can be one of:</description>
+    </item>
+    
+    <item>
       <title>pgsql优化1</title>
       <link>https://mjczz.github.io/learnpg/1/</link>
       <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
