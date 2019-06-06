@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Edidor Demo</title>
-    <link>https://mjczz/github.io/posts/</link>
+    <link>https://mjczz.github.io/posts/</link>
     <description>Recent content in Posts on Edidor Demo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 06 Jun 2019 09:34:15 +0800</lastBuildDate>
     
-	<atom:link href="https://mjczz/github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://mjczz.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>My First Post</title>
-      <link>https://mjczz/github.io/posts/my-first-post/</link>
+      <link>https://mjczz.github.io/posts/my-first-post/</link>
       <pubDate>Thu, 06 Jun 2019 09:34:15 +0800</pubDate>
       
-      <guid>https://mjczz/github.io/posts/my-first-post/</guid>
+      <guid>https://mjczz.github.io/posts/my-first-post/</guid>
       <description></description>
     </item>
     
